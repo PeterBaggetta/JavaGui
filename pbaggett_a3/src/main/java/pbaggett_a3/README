@@ -1,0 +1,86 @@
+----------README----------
+Project Name: EStoreSearch
+Author: Pietro Baggetta
+Student ID: 1092160
+Date of last update: November 9th, 2020
+
+
+Program: EStoreSearch.java
+
+General Problem:
+    - The problem that the program is solving is, to create a eStoreSearch program. In this program it stores electronics and books by
+    the ID, description, and year. But if the user does input the price and/or maker of the electronic, it stores it with those values
+    aswell. Also if the user enters the price and/or author and/or publisher of the book, the program will take them into account 
+    when storing the book.
+
+Assumptions and Limitations:
+    - Some limitations of the program is that it will eventually break if too much data is put into the ArrayList becuase the 
+    memory in the computer will eventually (this is saying thousands of products in each).
+
+User Guide:
+    - To compile the program, make sure you are in the proper directory and type in: 'gradle build'
+    - To run the program, in the same terminal after you compile, type: 'gradle run'
+    - To run the program with a file, type: 'gradle run --args='filename.txt'
+
+Testing:
+    - Using the JUnit will help test the program for correctness
+    - To compile, use: gradle build
+    - To run tests, use: gradle clean test
+    - To run main, use: gradle run
+    - To run main with a file, use: gradle run --args='filename.txt'
+
+Improvements:
+    - To improve the program, I would use more methods and classes so that the program is more concise and short while keeping the 
+    same functionality
+    - I would create different instances in the program that could help aid with bad input, or input that is not wanted int the program
+
+Program functionality:
+
+This program has two different ArrayLists, one is an electronic ArrayList and the other is a book ArrayList. The program will store values
+for each type of product in the repective ArrayList. The program has a couple different options for the user to do. It prompts the user 
+to enter either 'add'/'a', 'search'/'s' or 'quit'/'q'. 
+
+----'add'or 'a'----
+  If the user enters 'add'or 'a', it then asks the user if they want to add a product to the electronics or books ArrayList. 
+
+    ----'electronic' or 'electronics' or 'e'----
+      If the user enters 'electronic' or 'electronics' or 'e', it will then prompt them to enter a product;
+    ID, description, price, year, and maker. The price and the maker of the electronic are optional and do 
+    not need to be entered, while the other three need to be entered.
+
+    ----'book' or 'books' or 'b'----
+      If the user enters 'book' or 'books' or 'b', it will then prompt them to enter a book; ID, description, price, year,
+    author, and publisher. The price, author and publisher are optional and do not need to be entered, whereas the ID, 
+    description and year are required. 
+
+    ----RESTRICTIONS----
+      - The ID of a product cannot be duplicated. Meaning no two products can have the same ID, so if the program detects that,
+    it will ask the user to enter a different ID for that product.
+      - The ID must be 6 digits long, the description can be any string of letters or numbers, and the year must be a 4 digit 
+    number ranging from 1000 to 9999.
+
+----'search'/'s'----
+  If the user enters 'search'/'s', the program will ask the user to search for a product using the ID, description, and/or year 
+  of the product
+
+  ----Possible entries----
+    ----ID----
+      If the user enters a search ID, it must be a six digit number that the program will then search for in both the electronics and books
+    ArrayList.
+    ----Description----
+      If the user enters a search description, it will look through all product descriptions for the word. It will look through both the
+    electronic and book ArrayList to see if the word appears in any description.
+    ----Year----
+      If the user enters a search year, it will look at the products that have that corresponding year. If a range of years is entered
+    (ie. 2010-2020) with no spaces, it will look for all products with a year between the two years entered. If the user enters year-
+    it will look for all years after that year, (ie. 2010- so 2010 to 9999). If the user enters -year, it will look for all years before 
+    the given year (ie. 2020- so 1000 to 2020).
+
+    ---SIDE NOTE----
+    The program will only search the ArrayLists if, two or all three of the search terms are entered, and it will only output the 
+    corresponding product if the search terms all show up accordingly in the product. But if no search terms are entered, all of 
+    the products entered so far into the program will get outputed to the screen.
+
+----'quit'/'q'----
+  Will quit the program and terminate/clear all data that has been entered into the program. Ans give a end message thanking the user
+  for coming to the EStore
